@@ -1,1 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino Gabriel & Luiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+</head>
+<body>
+    <!-- Tela de carregamento -->
+    <div id="loading-screen" class="loading">
+        <div class="loading-content">
+            <img src="imagens/loading.jpg" alt="Carregando..." class="loading-img">
+            <h2>Carregando Treino...</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
 
+    <header>
+        <div class="header-bg">
+            <img src="imagens/capa.jpg" alt="Treino Gabriel & Luiz" class="header-img">
+        </div>
+        <h1>💪 Treino Gabriel & Luiz</h1>
+        <p class="subtitulo">Programa de Treino Avançado</p>
+    </header>
+
+    <nav class="main-nav">
+        <a href="index.html" class="nav-link active">📅 Meu Treino</a>
+        <a href="comentarios.html" class="nav-link">💬 Comentários</a>
+    </nav>
+
+    <div class="container">
+        <!-- Segunda-Feira: Peito e Tríceps -->
+        <div class="dia-treino" id="segunda">
+            <div class="card-header">
+                <h2>🔴 Segunda – Peito e Tríceps</h2>
+            </div>
+            <div class="exercicios">
+                <div class="exercicio">
+                    <span class="ordem">1</span>
+                    <span class="nome">Supino Reto na Máquina<br><small>3 x 8-12 | Descanso: 90s</small></span>
+                    <span class="dica-icon" data-dica="Foque em comprimir o peitoral no topo">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">2</span>
+                    <span class="nome">Supino Inclinado com Halteres<br><small>3 x 8-12 | Descanso: 90s</small></span>
+                    <span class="dica-icon" data-dica="Máxima amplitude - sinta o alongamento">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">3</span>
+                    <span class="nome">Cruzamento Polia Alta<br><small>3 x 12-15 | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Cruzar as mãos na contração final">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">4</span>
+                    <span class="nome">Tríceps Drop Set Polia<br><small>2 rodadas | Descanso: 120s</small></span>
+                    <span class="dica-icon" data-dica="30→25→20→15→10→5kg (10 reps cada)">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">5</span>
+                    <span class="nome">Tríceps Francês<br><small>3 x 10-12 | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Alongue completamente atrás da cabeça">💡</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terça-Feira: Pernas -->
+        <div class="dia-treino" id="terca">
+            <div class="card-header">
+                <h2>🔵 Terça – Pernas</h2>
+            </div>
+            <div class="exercicios">
+                <div class="exercicio">
+                    <span class="ordem">1</span>
+                    <span class="nome">Bike + Agachamento Vazio<br><small>2x15 + 2x15 | Aquecimento</small></span>
+                    <span class="dica-icon" data-dica="Aquecimento progressivo">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">2</span>
+                    <span class="nome">Agachamento Livre<br><small>4 x 6-10 | Descanso: 120s</small></span>
+                    <span class="dica-icon" data-dica="Desça controlado, exploda na subida">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">3</span>
+                    <span class="nome">Leg Press<br><small>3 x 8-12 | Descanso: 90s</small></span>
+                    <span class="dica-icon" data-dica="Não trave os joelhos no topo">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">4</span>
+                    <span class="nome">Stiff com Barra<br><small>3 x 10-12 | Descanso: 90s</small></span>
+                    <span class="dica-icon" data-dica="Mantenha costas retas - sinta posterior">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">5</span>
+                    <span class="nome">Flexora em Pé<br><small>3 x 10-15 | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Foco na porção lateral do posterior">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">6</span>
+                    <span class="nome">Mesa Flexora<br><small>3 x 12-15 | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Squeeze máximo no topo">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">7</span>
+                    <span class="nome">Panturrilha Em Pé<br><small>4 x 15-20 | Descanso: 45s</small></span>
+                    <span class="dica-icon" data-dica="Amplitude máxima - estique e contraia">💡</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quarta-Feira: Descanso -->
+        <div class="dia-treino" id="quarta">
+            <div class="card-header descanso">
+                <h2>⚪ Quarta – Descanso</h2>
+            </div>
+            <div class="exercicios">
+                <div class="descanso-info">
+                    <p>🔄 Recuperação ativa: caminhada, mobilidade ou descanso total</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quinta-Feira: Costas e Bíceps -->
+        <div class="dia-treino" id="quinta">
+            <div class="card-header">
+                <h2>🔴 Quinta – Costas e Bíceps</h2>
+            </div>
+            <div class="exercicios">
+                <div class="exercicio">
+                    <span class="ordem">1</span>
+                    <span class="nome">Remada Sentada (Aquecimento)<br><small>2 x 15-20 | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Sangue nas costas, não falha">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">2</span>
+                    <span class="nome">Levantamento Terra<br><small>3 x 5-8 | Descanso: 180s</small></span>
+                    <span class="dica-icon" data-dica="PRIORIDADE MÁXIMA - técnica perfeita">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">3</span>
+                    <span class="nome">Remada Curvada Barra<br><small>3 x 6-10 | Descanso: 120s</small></span>
+                    <span class="dica-icon" data-dica="Tronco paralelo - puxe para umbigo">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">4</span>
+                    <span class="nome">Remada Unilateral Máquina<br><small>3 x 10-12 | Descanso: 90s</small></span>
+                    <span class="dica-icon" data-dica="Alongamento + contração máxima">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">5</span>
+                    <span class="nome">Puxada Triângulo<br><small>3 x 12-15 | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Alongue completamente no topo">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">6</span>
+                    <span class="nome">Rosca Arnold<br><small>3 x 8-12 | Descanso: 90s</small></span>
+                    <span class="dica-icon" data-dica="Rotação completa - supinação total">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">7</span>
+                    <span class="nome">Rosca Scott Unilateral<br><small>3 x 12-15+ | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Até a falha concêntrica">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">8</span>
+                    <span class="nome">Rosca 45 Inclinada<br><small>3 x 10-15 | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Alongue completamente">💡</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sexta-Feira: Antebraço e Abdômen -->
+        <div class="dia-treino" id="sexta">
+            <div class="card-header">
+                <h2>🔵 Sexta – Antebraço e Abdômen</h2>
+            </div>
+            <div class="exercicios">
+                <div class="exercicio">
+                    <span class="ordem">1</span>
+                    <span class="nome">Flexão Punho Polia<br><small>3 x 15-20 | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Iso-hold na última rep">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">2</span>
+                    <span class="nome">Rosca Martelo<br><small>3 x 8-12 | Descanso: 90s</small></span>
+                    <span class="dica-icon" data-dica="Carga máxima com técnica">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">3</span>
+                    <span class="nome">Rosca Inversa<br><small>3 x 12-15 | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Cotovelos colados no corpo">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">4</span>
+                    <span class="nome">Abdominal Máquina<br><small>3 x 10-15 | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Contração pico - não use momentum">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">5</span>
+                    <span class="nome">Abdominal Infra<br><small>3 x 15-20 | Descanso: 45s</small></span>
+                    <span class="dica-icon" data-dica="Controlado - não jogue as pernas">💡</span>
+                </div>
+                <div class="exercicio">
+                    <span class="ordem">6</span>
+                    <span class="nome">Prancha com Peso<br><small>20kg/30s → 40kg/35s → 60kg/40s | Descanso: 60s</small></span>
+                    <span class="dica-icon" data-dica="Abdômen travado e puxado pra dentro">💡</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Feito com 💪 para Gabriel & Luiz</p>
+    </footer>
+
+    <!-- Modal para dicas -->
+    <div id="dicaModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Dica do Exercício</h3>
+            <p id="dicaTexto"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
