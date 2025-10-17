@@ -5,11 +5,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Remover tela de carregamento
     setTimeout(function() {
         const loadingScreen = document.getElementById('loading-screen');
-        loadingScreen.style.opacity = '0';
-        setTimeout(function() {
-            loadingScreen.style.display = 'none';
-        }, 500);
+        if (loadingScreen) {
+            loadingScreen.style.opacity = '0';
+            setTimeout(function() {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }
     }, 2000);
+    
+    // Verificar se a imagem da capa carregou
+    const headerImg = document.querySelector('.header-img');
+    if (headerImg) {
+        headerImg.onerror = function() {
+            console.log('Imagem da capa não carregou, usando fallback');
+            // O CSS já tem um fallback de gradiente
+        };
+        
+        headerImg.onload = function() {
+            console.log('Imagem da capa carregada com sucesso');
+        };
+    }
     
     // Adicionar funcionalidade de marcar exercícios completos
     const exercicios = document.querySelectorAll('.exercicio');
@@ -17,45 +32,35 @@ document.addEventListener('DOMContentLoaded', function() {
     exercicios.forEach(exercicio => {
         exercicio.addEventListener('click', function() {
             this.classList.toggle('completo');
+            salvarProgresso();
         });
     });
-    
-    // Adicionar classe para exercícios completos no CSS
-    const style = document.createElement('style');
-    style.textContent = `
-        .exercicio.completo {
-            background-color: rgba(51, 102, 255, 0.2);
-            opacity: 0.7;
-        }
-        .exercicio.completo .ordem {
-            background-color: var(--azul);
-        }
-    `;
-    document.head.appendChild(style);
     
     // Modal para dicas
     const modal = document.getElementById('dicaModal');
     const dicaTexto = document.getElementById('dicaTexto');
     const closeBtn = document.querySelector('.close');
     
-    document.querySelectorAll('.dica-icon').forEach(icon => {
-        icon.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const dica = this.getAttribute('data-dica');
-            dicaTexto.textContent = dica;
-            modal.style.display = 'block';
+    if (modal && dicaTexto && closeBtn) {
+        document.querySelectorAll('.dica-icon').forEach(icon => {
+            icon.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const dica = this.getAttribute('data-dica');
+                dicaTexto.textContent = dica;
+                modal.style.display = 'block';
+            });
         });
-    });
-    
-    closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-    });
-    
-    window.addEventListener('click', function(e) {
-        if (e.target == modal) {
+        
+        closeBtn.addEventListener('click', function() {
             modal.style.display = 'none';
-        }
-    });
+        });
+        
+        window.addEventListener('click', function(e) {
+            if (e.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
     
     // Salvar progresso no localStorage
     function salvarProgresso() {
@@ -76,11 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // Salvar progresso quando um exercício é marcado
-    exercicios.forEach(exercicio => {
-        exercicio.addEventListener('click', salvarProgresso);
-    });
     
     // Carregar progresso ao iniciar
     carregarProgresso();
