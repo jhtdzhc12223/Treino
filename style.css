@@ -1,4 +1,4 @@
-/* style.css - Versão Melhorada */
+/* style.css - Versão Corrigida */
 :root {
     --preto: #000000;
     --preto-claro: #1a1a1a;
@@ -35,7 +35,7 @@ body {
     min-height: 100vh;
 }
 
-/* Tela de carregamento melhorada */
+/* Tela de carregamento CORRIGIDA */
 .loading {
     position: fixed;
     top: 0;
@@ -53,20 +53,39 @@ body {
 .loading-content {
     text-align: center;
     max-width: 400px;
-    padding: 30px;
+    padding: 40px 30px;
     background: var(--preto-claro);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px var(--sombra-preta);
-    border: 1px solid var(--cinza-escuro);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px var(--sombra-preta);
+    border: 2px solid var(--vermelho);
+    margin: 20px;
+}
+
+.loading-icon {
+    font-size: 4rem;
+    margin-bottom: 25px;
+    animation: pulse 1.5s infinite;
+    display: block;
 }
 
 .loading-img {
-    max-width: 120px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    margin-bottom: 20px;
+    margin: 0 auto 25px auto;
     display: block;
     border: 3px solid var(--vermelho);
-    box-shadow: 0 0 20px var(--sombra-vermelha);
+    box-shadow: 0 0 25px var(--sombra-vermelha);
+    object-fit: cover;
+    object-position: center;
+}
+
+.loading-text {
+    color: var(--branco);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px var(--sombra-preta);
 }
 
 .loading-bar {
@@ -74,7 +93,7 @@ body {
     height: 8px;
     background-color: var(--preto-cinza);
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 25px;
     overflow: hidden;
     border: 1px solid var(--cinza-escuro);
 }
@@ -90,6 +109,12 @@ body {
 @keyframes loading {
     0% { width: 0%; }
     100% { width: 100%; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
 }
 
 /* Header melhorado */
@@ -118,20 +143,19 @@ header {
     opacity: 0;
 }
 
-.header-img:not([src]) + .header-fallback,
-.header-img[src=""] + .header-fallback,
-.header-img[src*="undefined"] + .header-fallback {
-    display: block;
-}
-
 .header-fallback {
-    display: none;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: var(--gradiente-principal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--branco);
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 h1 {
@@ -561,6 +585,20 @@ footer {
     .container {
         padding: 0 15px;
     }
+    
+    .loading-content {
+        padding: 30px 20px;
+        margin: 15px;
+    }
+    
+    .loading-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .loading-icon {
+        font-size: 3rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -593,8 +631,16 @@ footer {
     }
     
     .loading-content {
-        margin: 0 20px;
-        padding: 25px 20px;
+        padding: 25px 15px;
+    }
+    
+    .loading-img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .loading-text {
+        font-size: 1.1rem;
     }
 }
 
@@ -625,4 +671,15 @@ footer {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--gradiente-secundario);
+}
+
+/* Seleção de texto personalizada */
+::selection {
+    background: var(--vermelho);
+    color: var(--branco);
+}
+
+::-moz-selection {
+    background: var(--vermelho);
+    color: var(--branco);
 }
