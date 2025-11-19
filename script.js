@@ -1,6 +1,6 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Site do treino Gabriel & Luiz carregado!');
+    console.log('Site do treino G&L&V carregado!');
     
     // Remover tela de carregamento
     setTimeout(function() {
@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (headerImg) {
         headerImg.onerror = function() {
             console.log('Imagem da capa não carregou, usando fallback');
-            // O CSS já tem um fallback de gradiente
         };
         
         headerImg.onload = function() {
@@ -30,23 +29,43 @@ document.addEventListener('DOMContentLoaded', function() {
     const exercicios = document.querySelectorAll('.exercicio');
     
     exercicios.forEach(exercicio => {
-        exercicio.addEventListener('click', function() {
-            this.classList.toggle('completo');
-            salvarProgresso();
+        exercicio.addEventListener('click', function(e) {
+            // Não marcar como completo se clicar em um ícone de dica
+            if (!e.target.classList.contains('dica-icon')) {
+                this.classList.toggle('completo');
+                salvarProgresso();
+            }
         });
     });
     
-    // Modal para dicas
+    // Modal para dicas - ATUALIZADO PARA L E V
     const modal = document.getElementById('dicaModal');
     const dicaTexto = document.getElementById('dicaTexto');
+    const dicaTitulo = document.getElementById('dicaTitulo');
     const closeBtn = document.querySelector('.close');
     
-    if (modal && dicaTexto && closeBtn) {
+    if (modal && dicaTexto && closeBtn && dicaTitulo) {
         document.querySelectorAll('.dica-icon').forEach(icon => {
             icon.addEventListener('click', function(e) {
                 e.stopPropagation();
                 const dica = this.getAttribute('data-dica');
+                const isL = this.classList.contains('L-icon');
+                const isV = this.classList.contains('V-icon');
+                
                 dicaTexto.textContent = dica;
+                
+                // Definir título baseado no tipo de ícone
+                if (isL) {
+                    dicaTitulo.textContent = '💪 Dica do Luiz';
+                    dicaTitulo.style.color = '#ff3333';
+                } else if (isV) {
+                    dicaTitulo.textContent = '🔥 Dica do Vinicios';
+                    dicaTitulo.style.color = '#3366ff';
+                } else {
+                    dicaTitulo.textContent = '💡 Dica do Exercício';
+                    dicaTitulo.style.color = '#ff3333';
+                }
+                
                 modal.style.display = 'block';
             });
         });
@@ -68,12 +87,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.exercicio.completo').forEach(ex => {
             exerciciosCompletos.push(ex.querySelector('.nome').textContent);
         });
-        localStorage.setItem('treinoGabrielLuiz', JSON.stringify(exerciciosCompletos));
+        localStorage.setItem('treinoGLV', JSON.stringify(exerciciosCompletos));
     }
     
     // Carregar progresso do localStorage
     function carregarProgresso() {
-        const salvos = JSON.parse(localStorage.getItem('treinoGabrielLuiz') || '[]');
+        const salvos = JSON.parse(localStorage.getItem('treinoGLV') || '[]');
         document.querySelectorAll('.exercicio').forEach(ex => {
             const nomeExercicio = ex.querySelector('.nome').textContent;
             if (salvos.includes(nomeExercicio)) {
@@ -84,4 +103,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Carregar progresso ao iniciar
     carregarProgresso();
+    
+    // Adicionar animação de entrada nos cards
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observar todos os dias de treino
+    document.querySelectorAll('.dia-treino').forEach(dia => {
+        dia.style.opacity = '0';
+        dia.style.transform = 'translateY(20px)';
+        dia.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(dia);
+    });
 });
