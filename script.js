@@ -1,4 +1,4 @@
-// script.js - VERSÃO CORRIGIDA
+// script.js - VERSÃO COMPLETA E CORRIGIDA
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Site do treino G&L&V carregado!');
     
@@ -91,4 +91,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Carregar progresso ao iniciar
     carregarProgresso();
+    
+    // Adicionar animação de entrada nos cards
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observar todos os dias de treino
+    document.querySelectorAll('.dia-treino').forEach(dia => {
+        dia.style.opacity = '0';
+        dia.style.transform = 'translateY(20px)';
+        dia.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(dia);
+    });
 });
