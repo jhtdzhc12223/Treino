@@ -683,3 +683,84 @@ footer {
     background: var(--vermelho);
     color: var(--branco);
 }
+/* Novos estilos para os botões L e V */
+.L-icon {
+    background: linear-gradient(135deg, #ff3333, #cc0000) !important;
+    color: var(--branco) !important;
+    box-shadow: 0 3px 10px rgba(255, 51, 51, 0.4) !important;
+}
+
+.V-icon {
+    background: linear-gradient(135deg, #3366ff, #0044cc) !important;
+    color: var(--branco) !important;
+    box-shadow: 0 3px 10px rgba(51, 102, 255, 0.4) !important;
+}
+
+.L-icon:hover {
+    background: linear-gradient(135deg, #ff6666, #ff3333) !important;
+    transform: scale(1.1) rotate(-5deg) !important;
+}
+
+.V-icon:hover {
+    background: linear-gradient(135deg, #6699ff, #3366ff) !important;
+    transform: scale(1.1) rotate(5deg) !important;
+}
+
+/* Ajuste para múltiplos ícones */
+.exercicio {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid var(--cinza-escuro);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background: var(--preto-cinza);
+    position: relative;
+}
+
+.dica-icon {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: 8px !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    transition: all 0.3s ease !important;
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
+    border: 2px solid var(--branco) !important;
+}
+
+/* Ajustes responsivos para múltiplos ícones */
+@media (max-width: 768px) {
+    .dica-icon {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.8rem !important;
+        margin-left: 6px !important;
+    }
+    
+    .exercicio {
+        flex-wrap: wrap;
+    }
+    
+    .dica-icons-container {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+/* Estilo para o título do modal */
+#dicaTitulo {
+    color: var(--vermelho);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--vermelho);
+    padding-bottom: 10px;
+}
