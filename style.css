@@ -1,4 +1,4 @@
-/* style.css - Versão Corrigida */
+/* style.css - VERSÃO COMPLETA E CORRIGIDA */
 :root {
     --preto: #000000;
     --preto-claro: #1a1a1a;
@@ -35,7 +35,7 @@ body {
     min-height: 100vh;
 }
 
-/* Tela de carregamento CORRIGIDA */
+/* Tela de carregamento */
 .loading {
     position: fixed;
     top: 0;
@@ -61,13 +61,6 @@ body {
     margin: 20px;
 }
 
-.loading-icon {
-    font-size: 4rem;
-    margin-bottom: 25px;
-    animation: pulse 1.5s infinite;
-    display: block;
-}
-
 .loading-img {
     width: 120px;
     height: 120px;
@@ -80,7 +73,7 @@ body {
     object-position: center;
 }
 
-.loading-text {
+.loading h2 {
     color: var(--branco);
     font-size: 1.3rem;
     font-weight: 600;
@@ -117,7 +110,7 @@ body {
     100% { transform: scale(1); opacity: 0.8; }
 }
 
-/* Header melhorado */
+/* Header */
 header {
     position: relative;
     margin-bottom: 30px;
@@ -141,21 +134,6 @@ header {
 
 .header-img:not([src]), .header-img[src=""], .header-img[src*="undefined"] {
     opacity: 0;
-}
-
-.header-fallback {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradiente-principal);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--branco);
-    font-size: 1.5rem;
-    font-weight: bold;
 }
 
 h1 {
@@ -187,7 +165,7 @@ h1 {
     opacity: 0.9;
 }
 
-/* Navegação melhorada */
+/* Navegação */
 .main-nav {
     display: flex;
     justify-content: center;
@@ -264,7 +242,7 @@ h1 {
     }
 }
 
-/* Cards melhorados */
+/* Cards */
 .card-header {
     background: var(--gradiente-secundario);
     color: var(--branco);
@@ -318,7 +296,7 @@ h1 {
     background: linear-gradient(90deg, transparent, var(--vermelho), transparent);
 }
 
-/* Exercícios melhorados */
+/* Exercícios */
 .exercicio {
     display: flex;
     align-items: center;
@@ -329,6 +307,7 @@ h1 {
     border-radius: 10px;
     margin-bottom: 8px;
     background: var(--preto-cinza);
+    position: relative;
 }
 
 .exercicio:hover {
@@ -373,28 +352,43 @@ h1 {
     font-weight: 400;
 }
 
-.dica-icon {
-    background: var(--azul);
-    color: var(--branco);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 12px;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-    box-shadow: 0 3px 10px var(--sombra-azul);
-    border: 2px solid var(--branco);
+/* Novos estilos para os botões L e V */
+.L-icon {
+    background: linear-gradient(135deg, #ff3333, #cc0000) !important;
+    color: var(--branco) !important;
+    box-shadow: 0 3px 10px rgba(255, 51, 51, 0.4) !important;
 }
 
-.dica-icon:hover {
-    background: var(--azul-suave);
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 5px 15px var(--sombra-azul);
+.V-icon {
+    background: linear-gradient(135deg, #3366ff, #0044cc) !important;
+    color: var(--branco) !important;
+    box-shadow: 0 3px 10px rgba(51, 102, 255, 0.4) !important;
+}
+
+.dica-icon {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: 8px !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    transition: all 0.3s ease !important;
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
+    border: 2px solid var(--branco) !important;
+}
+
+.L-icon:hover {
+    background: linear-gradient(135deg, #ff6666, #ff3333) !important;
+    transform: scale(1.1) rotate(-5deg) !important;
+}
+
+.V-icon:hover {
+    background: linear-gradient(135deg, #6699ff, #3366ff) !important;
+    transform: scale(1.1) rotate(5deg) !important;
 }
 
 .descanso-info {
@@ -408,7 +402,7 @@ h1 {
     border: 1px dashed var(--cinza-escuro);
 }
 
-/* Footer melhorado */
+/* Footer */
 footer {
     text-align: center;
     padding: 25px;
@@ -421,7 +415,7 @@ footer {
     box-shadow: 0 -5px 20px var(--sombra-preta);
 }
 
-/* Modal melhorado */
+/* ESTILOS DO MODAL - CORRIGIDOS */
 .modal {
     display: none;
     position: fixed;
@@ -486,6 +480,13 @@ footer {
     border-left: 4px solid var(--vermelho);
 }
 
+#dicaTitulo {
+    color: var(--vermelho);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--vermelho);
+    padding-bottom: 10px;
+}
+
 /* Estilos para exercícios completos */
 .exercicio.completo {
     background: rgba(51, 102, 255, 0.2);
@@ -530,7 +531,14 @@ footer {
     font-size: 1rem;
 }
 
-/* Responsividade melhorada */
+.comentario-geral {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--cinza-escuro);
+    font-style: italic;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
     .header-bg {
         height: 180px;
@@ -595,10 +603,6 @@ footer {
         width: 100px;
         height: 100px;
     }
-    
-    .loading-icon {
-        font-size: 3rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -639,7 +643,7 @@ footer {
         height: 80px;
     }
     
-    .loading-text {
+    .loading h2 {
         font-size: 1.1rem;
     }
 }
@@ -682,85 +686,4 @@ footer {
 ::-moz-selection {
     background: var(--vermelho);
     color: var(--branco);
-}
-/* Novos estilos para os botões L e V */
-.L-icon {
-    background: linear-gradient(135deg, #ff3333, #cc0000) !important;
-    color: var(--branco) !important;
-    box-shadow: 0 3px 10px rgba(255, 51, 51, 0.4) !important;
-}
-
-.V-icon {
-    background: linear-gradient(135deg, #3366ff, #0044cc) !important;
-    color: var(--branco) !important;
-    box-shadow: 0 3px 10px rgba(51, 102, 255, 0.4) !important;
-}
-
-.L-icon:hover {
-    background: linear-gradient(135deg, #ff6666, #ff3333) !important;
-    transform: scale(1.1) rotate(-5deg) !important;
-}
-
-.V-icon:hover {
-    background: linear-gradient(135deg, #6699ff, #3366ff) !important;
-    transform: scale(1.1) rotate(5deg) !important;
-}
-
-/* Ajuste para múltiplos ícones */
-.exercicio {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    border-bottom: 1px solid var(--cinza-escuro);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    background: var(--preto-cinza);
-    position: relative;
-}
-
-.dica-icon {
-    width: 32px !important;
-    height: 32px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin-left: 8px !important;
-    cursor: pointer !important;
-    flex-shrink: 0 !important;
-    transition: all 0.3s ease !important;
-    font-size: 0.9rem !important;
-    font-weight: bold !important;
-    border: 2px solid var(--branco) !important;
-}
-
-/* Ajustes responsivos para múltiplos ícones */
-@media (max-width: 768px) {
-    .dica-icon {
-        width: 28px !important;
-        height: 28px !important;
-        font-size: 0.8rem !important;
-        margin-left: 6px !important;
-    }
-    
-    .exercicio {
-        flex-wrap: wrap;
-    }
-    
-    .dica-icons-container {
-        display: flex;
-        gap: 8px;
-        margin-top: 10px;
-        width: 100%;
-    }
-}
-
-/* Estilo para o título do modal */
-#dicaTitulo {
-    color: var(--vermelho);
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--vermelho);
-    padding-bottom: 10px;
 }
