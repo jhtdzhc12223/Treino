@@ -1,4 +1,4 @@
-/* style.css - VERSÃO COMPLETA E CORRIGIDA */
+/* style.css - VERSÃO COMPLETA ATUALIZADA COM NOVA DIVISÃO DE PERNAS */
 :root {
     --preto: #000000;
     --preto-claro: #1a1a1a;
@@ -9,13 +9,25 @@
     --azul: #3366ff;
     --azul-escuro: #0044cc;
     --azul-suave: #6699ff;
+    --verde: #33cc33; /* Nova cor para quadríceps */
+    --verde-escuro: #009900;
+    --verde-suave: #66ff66;
+    --amarelo: #ffcc00; /* Nova cor para posterior */
+    --amarelo-escuro: #cc9900;
+    --amarelo-suave: #ffdd44;
     --branco: #ffffff;
     --cinza: #cccccc;
     --cinza-claro: #e8e8e8;
     --cinza-escuro: #666666;
     --sombra-vermelha: rgba(255, 51, 51, 0.3);
     --sombra-azul: rgba(51, 102, 255, 0.3);
+    --sombra-verde: rgba(51, 204, 51, 0.3); /* Nova sombra */
+    --sombra-amarela: rgba(255, 204, 0, 0.3); /* Nova sombra */
     --sombra-preta: rgba(0, 0, 0, 0.5);
+    --gradiente-vermelho: linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro));
+    --gradiente-azul: linear-gradient(135deg, var(--azul), var(--azul-escuro));
+    --gradiente-verde: linear-gradient(135deg, var(--verde), var(--verde-escuro)); /* Novo gradiente */
+    --gradiente-amarelo: linear-gradient(135deg, var(--amarelo), var(--amarelo-escuro)); /* Novo gradiente */
     --gradiente-principal: linear-gradient(135deg, var(--vermelho), var(--azul));
     --gradiente-secundario: linear-gradient(135deg, var(--vermelho-escuro), var(--azul-escuro));
 }
@@ -102,12 +114,6 @@ body {
 @keyframes loading {
     0% { width: 0%; }
     100% { width: 100%; }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.8; }
 }
 
 /* Header */
@@ -242,14 +248,14 @@ h1 {
     }
 }
 
-/* Cards */
+/* Cards ATUALIZADOS */
 .card-header {
-    background: var(--gradiente-secundario);
+    background: var(--gradiente-vermelho); /* Padrão vermelho */
     color: var(--branco);
     padding: 20px;
     border-radius: 15px 15px 0 0;
     margin-bottom: 0;
-    box-shadow: 0 6px 20px var(--sombra-preta);
+    box-shadow: 0 6px 20px var(--sombra-vermelha);
     border-bottom: 3px solid var(--vermelho-suave);
     position: relative;
     overflow: hidden;
@@ -265,15 +271,35 @@ h1 {
     background: linear-gradient(90deg, var(--vermelho), var(--azul), var(--vermelho));
 }
 
-.card-header.descanso {
-    background: linear-gradient(135deg, var(--cinza-escuro), var(--cinza));
+/* Cores específicas para cada dia */
+#segunda .card-header {
+    background: var(--gradiente-vermelho) !important;
+    box-shadow: 0 6px 20px var(--sombra-vermelha) !important;
+    border-bottom: 3px solid var(--vermelho-suave) !important;
 }
 
-.card-header h2 {
-    margin: 0;
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-shadow: 1px 1px 3px var(--sombra-preta);
+#terca .card-header {
+    background: var(--gradiente-verde) !important;
+    box-shadow: 0 6px 20px var(--sombra-verde) !important;
+    border-bottom: 3px solid var(--verde-suave) !important;
+}
+
+#quarta .card-header {
+    background: var(--gradiente-azul) !important;
+    box-shadow: 0 6px 20px var(--sombra-azul) !important;
+    border-bottom: 3px solid var(--azul-suave) !important;
+}
+
+#quinta .card-header {
+    background: var(--gradiente-vermelho) !important;
+    box-shadow: 0 6px 20px var(--sombra-vermelha) !important;
+    border-bottom: 3px solid var(--vermelho-suave) !important;
+}
+
+#sexta .card-header {
+    background: var(--gradiente-amarelo) !important;
+    box-shadow: 0 6px 20px var(--sombra-amarela) !important;
+    border-bottom: 3px solid var(--amarelo-suave) !important;
 }
 
 .exercicios {
@@ -316,6 +342,21 @@ h1 {
     border-left: 3px solid var(--vermelho);
 }
 
+#terca .exercicio:hover {
+    background: rgba(51, 204, 51, 0.15) !important;
+    border-left: 3px solid var(--verde) !important;
+}
+
+#quarta .exercicio:hover {
+    background: rgba(51, 102, 255, 0.15) !important;
+    border-left: 3px solid var(--azul) !important;
+}
+
+#sexta .exercicio:hover {
+    background: rgba(255, 204, 0, 0.15) !important;
+    border-left: 3px solid var(--amarelo) !important;
+}
+
 .exercicio:last-child {
     border-bottom: none;
     margin-bottom: 0;
@@ -336,6 +377,21 @@ h1 {
     font-size: 0.95rem;
     box-shadow: 0 3px 10px var(--sombra-vermelha);
     border: 2px solid var(--branco);
+}
+
+#terca .ordem {
+    background: var(--gradiente-verde) !important;
+    box-shadow: 0 3px 10px var(--sombra-verde) !important;
+}
+
+#quarta .ordem {
+    background: var(--gradiente-azul) !important;
+    box-shadow: 0 3px 10px var(--sombra-azul) !important;
+}
+
+#sexta .ordem {
+    background: var(--gradiente-amarelo) !important;
+    box-shadow: 0 3px 10px var(--sombra-amarela) !important;
 }
 
 .nome {
@@ -389,17 +445,6 @@ h1 {
 .V-icon:hover {
     background: linear-gradient(135deg, #6699ff, #3366ff) !important;
     transform: scale(1.1) rotate(5deg) !important;
-}
-
-.descanso-info {
-    text-align: center;
-    padding: 30px;
-    color: var(--cinza);
-    font-style: italic;
-    background: var(--preto-cinza);
-    border-radius: 10px;
-    margin: 10px 0;
-    border: 1px dashed var(--cinza-escuro);
 }
 
 /* Footer */
