@@ -1,154 +1,191 @@
-/* ===== MELHORIAS GERAIS ===== */
+:root {
+    --preto: #000;
+    --preto-claro: #121212;
+    --preto-cinza: #1e1e1e;
+
+    --vermelho: #ff3b3b;
+    --vermelho-escuro: #b30000;
+
+    --azul: #3b6cff;
+    --azul-escuro: #002fcc;
+
+    --verde: #2ecc71;
+    --amarelo: #f1c40f;
+
+    --branco: #fff;
+    --cinza: #aaa;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
 
 body {
-    background: radial-gradient(circle at top, #1a1a1a, #000000 80%);
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: var(--branco);
 }
 
-/* ===== CARDS MAIS PREMIUM ===== */
-
-.card-header {
-    backdrop-filter: blur(10px);
-    background: linear-gradient(135deg, rgba(255, 51, 51, 0.9), rgba(204, 0, 0, 0.9));
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    border: none;
-}
-
-/* Cores refinadas por dia */
-#terca .card-header {
-    background: linear-gradient(135deg, rgba(51, 204, 51, 0.9), rgba(0, 153, 0, 0.9));
-}
-
-#quarta .card-header {
-    background: linear-gradient(135deg, rgba(51, 102, 255, 0.9), rgba(0, 68, 204, 0.9));
-}
-
-#sexta .card-header {
-    background: linear-gradient(135deg, rgba(255, 204, 0, 0.9), rgba(204, 153, 0, 0.9));
-}
-
-/* ===== CAIXA DOS EXERCÍCIOS ===== */
-
-.exercicios {
-    background: rgba(26, 26, 26, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.05);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.7);
-}
-
-/* ===== EXERCÍCIOS ===== */
-
-.exercicio {
-    background: rgba(45, 45, 45, 0.6);
-    border: 1px solid transparent;
-    transition: all 0.25s ease;
-}
-
-/* Hover MUITO mais bonito */
-.exercicio:hover {
-    background: rgba(255, 51, 51, 0.12);
-    transform: translateX(6px) scale(1.01);
-    border: 1px solid rgba(255, 51, 51, 0.3);
-}
-
-/* Hover por cor */
-#terca .exercicio:hover {
-    background: rgba(51, 204, 51, 0.12);
-}
-
-#quarta .exercicio:hover {
-    background: rgba(51, 102, 255, 0.12);
-}
-
-#sexta .exercicio:hover {
-    background: rgba(255, 204, 0, 0.12);
-}
-
-/* ===== BOLINHA DO NÚMERO ===== */
-
-.ordem {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    border: none;
-    font-size: 0.9rem;
-}
-
-/* ===== TEXTO ===== */
-
-.nome {
-    font-weight: 600;
-    letter-spacing: 0.3px;
-}
-
-.nome small {
-    opacity: 0.8;
-}
-
-/* ===== BOTÕES L E V MAIS PREMIUM ===== */
-
-.L-icon, .V-icon {
-    border: none !important;
-    transition: all 0.25s ease !important;
-}
-
-.L-icon:hover {
-    transform: scale(1.15);
-    box-shadow: 0 5px 20px rgba(255, 51, 51, 0.6);
-}
-
-.V-icon:hover {
-    transform: scale(1.15);
-    box-shadow: 0 5px 20px rgba(51, 102, 255, 0.6);
-}
-
-/* ===== HEADER MELHORADO ===== */
-
+/* HEADER */
 .header-bg {
+    height: 200px;
+    background: linear-gradient(135deg, var(--vermelho), var(--azul));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
 
 h1 {
-    font-size: 3rem;
-    letter-spacing: -1px;
+    font-size: 2.5rem;
 }
 
 .subtitulo {
-    opacity: 0.85;
+    color: var(--cinza);
 }
 
-/* ===== ANIMAÇÃO MAIS SUAVE ===== */
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* NAV */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
 }
 
-/* ===== SCROLLBAR MAIS CLEAN ===== */
-
-::-webkit-scrollbar {
-    width: 6px;
+.nav-link {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: var(--preto-claro);
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #ff3333, #3366ff);
+.nav-link:hover {
+    background: var(--preto-cinza);
+}
+
+.nav-link.active {
+    background: linear-gradient(135deg, var(--vermelho), var(--azul));
+}
+
+/* CONTAINER */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* CARD */
+.card-header {
+    padding: 15px;
+    border-radius: 15px 15px 0 0;
+    font-weight: bold;
+}
+
+#segunda .card-header { background: linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro)); }
+#terca .card-header { background: linear-gradient(135deg, var(--verde), #1e8449); }
+#quarta .card-header { background: linear-gradient(135deg, var(--azul), var(--azul-escuro)); }
+#quinta .card-header { background: linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro)); }
+#sexta .card-header { background: linear-gradient(135deg, var(--amarelo), #b7950b); }
+
+.exercicios {
+    background: rgba(20,20,20,0.9);
+    border-radius: 0 0 15px 15px;
+    padding: 15px;
+}
+
+/* EXERCICIO */
+.exercicio {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    background: #2a2a2a;
+    transition: 0.25s;
+}
+
+.exercicio:hover {
+    transform: translateX(5px);
+    background: rgba(255,255,255,0.05);
+}
+
+/* NUMERO */
+.ordem {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--vermelho), var(--azul));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+/* TEXTO */
+.nome {
+    flex: 1;
+}
+
+.nome small {
+    display: block;
+    color: var(--cinza);
+}
+
+/* BOTÕES */
+.dica-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.L-icon {
+    background: var(--vermelho);
+}
+
+.V-icon {
+    background: var(--azul);
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    background: #1a1a1a;
+    margin: 20% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
     border-radius: 10px;
 }
 
-/* ===== EXERCÍCIO COMPLETO (MAIS BONITO) ===== */
-
-.exercicio.completo {
-    background: rgba(51, 102, 255, 0.15);
-    border: 1px solid rgba(51, 102, 255, 0.3);
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--cinza);
 }
 
-/* ===== MODAL MELHOR ===== */
-
-.modal-content {
-    backdrop-filter: blur(15px);
-    background: rgba(26, 26, 26, 0.95);
-    border: 1px solid rgba(255,255,255,0.1);
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    .exercicio {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
